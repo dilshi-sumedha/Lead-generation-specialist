@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dilshi Sumedha — Lead Generation Specialist</title>
+<meta name="description" content="Bringing the right accounts through the right platforms with the right strategies.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Tokens — shared brand kit (matches the other portfolio pages)
+   ============================================================ */
+:root{
+  --ink:#1B2978;
+  --ink-soft:rgba(27,41,120,.66);
+  --ink-faint:rgba(27,41,120,.42);
+  --sky:#84cdee;
+  --sky-soft:#cfeafb;
+  --line:rgba(27,41,120,.14);
+  --line-2:rgba(27,41,120,.08);
+  --glass:rgba(255,255,255,.55);
+  --glass-2:rgba(255,255,255,.40);
+  --glass-border:rgba(255,255,255,.75);
+  --shadow:0 24px 60px -34px rgba(27,41,120,.55);
+  --shadow-sm:0 14px 34px -24px rgba(27,41,120,.5);
+  --spring:cubic-bezier(.16,1,.3,1);
+  --display:'Inter Tight',Inter,Manrope,system-ui,sans-serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Manrope,sans-serif;
+  --nav-h:72px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{height:100%;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);color:var(--ink);line-height:1.6;
+  background:radial-gradient(at 5.62% 33.12%, #ffffff 30%, #84cdee 100%) fixed;
+  background-color:#bfe4f5;height:100%;overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink);color:#fff}
+a{color:inherit}
+button{font:inherit;color:inherit}
+
+/* ============================================================ AMBIENT BACKGROUND (30% scroll parallax) */
+.bg-field{position:fixed;left:-30px;right:-30px;top:0;height:calc(100vh + 60px);z-index:0;overflow:hidden;pointer-events:none;
+  will-change:transform;opacity:0;transition:opacity 1.4s var(--spring) .6s}
+.hero-ready .bg-field{opacity:1}
+.blob{position:absolute;border-radius:50%;filter:blur(64px);opacity:.62}
+.blob-1{width:50vw;height:50vw;left:-10vw;top:-8vw;background:radial-gradient(circle, rgba(132,205,238,.9), rgba(132,205,238,0) 68%);animation:drift1 34s ease-in-out infinite}
+.blob-2{width:44vw;height:44vw;right:-8vw;top:16vw;background:radial-gradient(circle, rgba(207,234,251,.95), rgba(207,234,251,0) 70%);animation:drift2 40s ease-in-out infinite}
+.blob-3{width:42vw;height:42vw;left:22vw;top:34%;background:radial-gradient(circle, rgba(27,41,120,.16), rgba(27,41,120,0) 70%);animation:drift3 46s ease-in-out infinite}
+.blob-4{width:46vw;height:46vw;right:-10vw;top:56%;background:radial-gradient(circle, rgba(132,205,238,.85), rgba(132,205,238,0) 68%);animation:drift2 38s ease-in-out infinite}
+.blob-5{width:40vw;height:40vw;left:-8vw;top:78%;background:radial-gradient(circle, rgba(207,234,251,.95), rgba(207,234,251,0) 70%);animation:drift1 42s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vw) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,5vw) scale(1.08)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,-6vw) scale(1.15)}}
+
+/* ============================================================ PINNED HEADER + PROGRESS LINE */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.6)}
+.scroll-progress{position:absolute;top:0;left:0;height:4px;width:100%;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--ink),var(--sky));border-radius:0 4px 4px 0;pointer-events:none;
+  transition:transform .12s linear}
+.topbar{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);padding:0 28px;width:100%;max-width:1180px;margin:0 auto}
+.mark{font-family:var(--display);font-weight:400;letter-spacing:-.02em;font-size:1.05rem;text-decoration:none}
+.mark b{font-weight:500}
+.nav{display:flex;gap:26px;font-size:.88rem;font-weight:500}
+.nav a{position:relative;text-decoration:none;color:var(--ink-soft);padding:6px 0;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a.active::after{transform:scaleX(1)}
+
+/* ============================================================ FULL-PAGE SLIDE DECK */
+.deck{position:relative;z-index:1;height:100vh;height:100dvh;overflow-y:scroll;overflow-x:hidden;
+  scroll-snap-type:y mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+.slide{position:relative;height:100vh;height:100dvh;overflow-y:auto;overflow-x:hidden;padding-top:var(--nav-h);
+  scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;scrollbar-width:none}
+.slide::-webkit-scrollbar{display:none}
+.slide-inner{width:100%;max-width:1180px;margin:auto;padding:clamp(40px,7vh,84px) 28px}
+.slide-tight .slide-inner{padding-top:clamp(16px,3vh,32px);padding-bottom:clamp(16px,3vh,32px)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--spring), transform 1s var(--spring)}
+.reveal.in{opacity:1;transform:none}
+
+/* children rise one after another once their card is revealed */
+.case .challenge,.case .result,.case .shot,
+.contact .contact-card,.contact .reach-label,.contact .reach-card{
+  opacity:0;transform:translateY(22px);transition:opacity .8s var(--spring),transform .9s var(--spring)}
+.case.in .challenge,.case.in .result,.case.in .shot,
+.contact.in .contact-card,.contact.in .reach-label,.contact.in .reach-card{opacity:1;transform:none}
+.case.in .challenge{transition-delay:.15s}
+.case.in .result{transition-delay:.27s}
+.case.in .shot:nth-child(1){transition-delay:.22s}
+.case.in .shot:nth-child(2){transition-delay:.32s}
+.case.in .shot:nth-child(3){transition-delay:.42s}
+.case.in .shot:nth-child(4){transition-delay:.52s}
+.case.in .shot:nth-child(5){transition-delay:.62s}.contact.in .contact-card{transition-delay:.15s}
+.contact.in .reach-label{transition-delay:.28s}
+.contact.in .reach-card:nth-of-type(1){transition-delay:.36s}
+.contact.in .reach-card:nth-of-type(2){transition-delay:.46s}
+
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.glass{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm)}
+
+/* ============================================================ HERO */
+.slide-hero .slide-inner{text-align:center}
+.hero-title{font-family:var(--display);font-weight:200;font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.02;letter-spacing:-.04em;max-width:none;margin:0 auto}
+.hero-line{display:block}
+.hl{padding:0 .06em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(transparent 56%, rgba(132,205,238,.6) 56%, rgba(132,205,238,.6) 90%, transparent 90%);
+  background-repeat:no-repeat;background-size:0% 100%;
+  transition:background-size 1.1s cubic-bezier(.65,0,.35,1) .75s}
+.hero-ready .hl{background-size:100% 100%}
+.hero-anim{opacity:0;transform:translateY(30px);transition:opacity .9s var(--spring),transform 1.1s var(--spring)}
+.hero-ready .hero-anim{opacity:1;transform:none}
+/* headline: each character rises on its own delay (--d, set by the script) */
+.hero-title .w{display:inline-block;white-space:nowrap}
+.hero-title .ch{display:inline-block;opacity:0;transform:translateY(30px);
+  transition:opacity .8s var(--spring),transform 1s var(--spring);transition-delay:var(--d,0s)}
+.hero-ready .hero-title .ch{opacity:1;transform:none}
+.hero-sub{max-width:46ch;margin:28px auto 0;color:var(--ink-soft);font-size:clamp(1.05rem,1.6vw,1.22rem)}
+
+/* platforms: floating logo strip */
+.hero-tools{margin-top:clamp(30px,5vh,56px)}
+.marquee{overflow:hidden;max-width:960px;margin:0 auto;padding:10px 0 16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{list-style:none;display:flex;gap:14px;width:max-content;animation:marquee 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(calc(-50% - 7px))}}
+.tool{display:flex;align-items:center;gap:10px;padding:10px 18px 10px 12px;border-radius:100px;
+  background:rgba(255,255,255,.72);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);
+  animation:bob 5s ease-in-out infinite}
+.tool:nth-child(even){animation-delay:-2.5s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tool-name{font-weight:600;font-size:.92rem;letter-spacing:-.01em;white-space:nowrap}
+.tool-ic{width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+.tool-ic.si{background:var(--c);-webkit-mask:var(--icon) center/contain no-repeat;mask:var(--icon) center/contain no-repeat}
+/* logos without a public icon: drop a PNG into assets/tools/ and it replaces the letter badge */
+.tool-ic.local{position:relative;overflow:hidden}
+.tool-ic.local img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.tool-ic.local .mono{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  background:var(--c,var(--ink));color:#fff;font-family:var(--display);font-weight:500;font-size:.66rem;letter-spacing:.02em}
+.tool-ic.local.has-logo .mono{display:none}
+
+/* ============================================================ ROLE (tabs) */
+.role-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.role-head h2{font-family:var(--display);font-weight:200;font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.05;letter-spacing:-.035em;margin-top:8px}
+.roles{display:grid;grid-template-columns:minmax(260px,.82fr) 1.5fr;gap:clamp(16px,2.4vw,28px);margin-top:clamp(20px,3.5vh,36px);align-items:stretch}
+.role-tabs{display:grid;gap:10px;align-content:start}
+.role-tab{position:relative;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;text-align:left;cursor:pointer;
+  padding:16px 18px;border-radius:18px;border:1px solid transparent;background:rgba(255,255,255,.28);
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,transform .35s cubic-bezier(.2,.7,.2,1)}
+.role-tab:hover{background:rgba(255,255,255,.5);transform:translateX(4px)}
+.role-tab .no{font-family:var(--display);font-weight:300;font-size:1.5rem;line-height:1;color:var(--ink-faint);grid-row:span 2;
+  transition:color .35s ease}
+.role-tab .t{font-weight:600;font-size:.98rem;line-height:1.3;letter-spacing:-.01em}
+.role-tab .mode{justify-self:start;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:100px;padding:2px 9px;background:rgba(255,255,255,.5)}
+.role-tab::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;
+  background:linear-gradient(var(--ink),var(--sky));transform:scaleY(0);transition:transform .45s var(--spring)}
+.role-tab[aria-selected="true"]{background:rgba(255,255,255,.75);border-color:var(--glass-border);box-shadow:var(--shadow-sm)}
+.role-tab[aria-selected="true"]::before{transform:scaleY(1)}
+.role-tab[aria-selected="true"] .no{color:var(--ink)}
+
+.role-panel{border-radius:24px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column}
+.role-panel[hidden]{display:none}
+.panel-top{display:flex;align-items:baseline;gap:14px}
+.panel-top .no{font-family:var(--display);font-weight:200;font-size:clamp(2.4rem,4vw,3.4rem);line-height:.9;color:var(--sky);letter-spacing:-.04em;
+  -webkit-text-stroke:1px rgba(27,41,120,.25)}
+.panel-top h3{font-family:var(--display);font-weight:300;font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.15;letter-spacing:-.02em}
+.duties{list-style:none;display:grid;gap:12px;margin-top:clamp(16px,2.6vh,26px)}
+.duty{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:16px;
+  background:rgba(255,255,255,.62);border:1px solid var(--line-2);
+  opacity:0;transform:translateY(16px);transition:opacity .7s var(--spring),transform .8s var(--spring),box-shadow .3s ease}
+.duty:hover{box-shadow:var(--shadow-sm)}
+.role-panel.on .duty{opacity:1;transform:none}
+.role-panel.on .duty:nth-child(2){transition-delay:.08s}
+.role-panel.on .duty:nth-child(3){transition-delay:.16s}
+.duty-ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(132,205,238,.3);border:1px solid rgba(27,41,120,.1)}
+.duty-ic svg{width:17px;height:17px;stroke:var(--ink);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.duty b{display:block;font-weight:600;font-size:.97rem;letter-spacing:-.01em}
+.duty p{margin-top:3px;color:var(--ink-soft);font-size:.9rem;line-height:1.55}
+
+/* ============================================================ CASE STUDIES */
+.case{border-radius:28px;padding:clamp(20px,2.6vw,32px) clamp(22px,3vw,38px);margin-top:clamp(10px,2vh,18px)}
+.case-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.case-no{font-family:var(--display);font-weight:300;font-size:.95rem;color:var(--ink-faint)}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:500;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:6px 14px;background:var(--glass-2)}
+.tag svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.8;fill:none}
+.case h3{font-family:var(--display);font-weight:300;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.12;letter-spacing:-.025em;margin-top:10px}
+.case-grid{display:grid;grid-template-columns:minmax(250px,.78fr) 1.6fr;gap:clamp(18px,3vw,40px);margin-top:clamp(14px,2.4vh,24px);align-items:start}
+.case-side{display:grid;gap:16px}
+.label{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.challenge h4{margin-top:10px;font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.challenge p{margin-top:8px;font-size:.95rem;line-height:1.62}
+.result{border-radius:18px;padding:16px 20px 18px;background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(207,234,251,.7));border:1px solid var(--glass-border)}
+.result-text{margin-top:6px;font-size:.95rem;line-height:1.55}
+/* images: each in its own card with its title; hover / focus / tap pops it up */
+.shots{display:grid;gap:14px}
+.shots.g4{grid-template-columns:repeat(2,1fr)}
+/* Case Study 01: the reply collage stands tall on the left, the four other screenshots sit 2 × 2 beside it */
+.shots.g5{grid-template-columns:.9fr 1fr 1fr;--fh:clamp(90px,calc((100dvh - 440px) / 2),210px)}
+.shots.g5 .shot.tall{grid-row:span 2;display:flex;flex-direction:column}
+.shots.g5 .shot.tall .shot-frame{height:auto;flex:1;min-height:var(--fh)}
+.shots.g2{grid-template-columns:repeat(2,1fr)}
+.shots.g1{grid-template-columns:1fr}
+.shot{margin:0;cursor:zoom-in;outline:none;border-radius:14px;padding:8px 8px 0;background:rgba(255,255,255,.55);border:1px solid var(--glass-border);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.shot:hover,.shot:focus-visible{transform:translateY(-4px);box-shadow:var(--shadow)}
+.shot:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.shot-frame{height:var(--fh);background:#fff;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.shot-frame img{width:100%;height:100%;object-fit:contain;display:block}
+.shot figcaption{padding:8px 4px 10px;text-align:center;font-size:.85rem;font-weight:600;line-height:1.35}
+.shots.g4{--fh:clamp(100px,calc((100dvh - 430px) / 2),230px)}
+.shots.g2,.shots.g1{--fh:clamp(170px,calc(100dvh - 400px),460px)}
+
+/* pop-up (same size as the CRM page; the reply collages open larger so the text is readable) */
+.lightbox{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:4vh 4vw;
+  background:rgba(27,41,120,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;transition:opacity .3s ease}
+.lightbox.show{opacity:1}
+.lightbox img{max-width:min(46vw,750px);max-height:44vh;width:auto;height:auto;border-radius:14px;background:#fff;
+  border:1px solid rgba(255,255,255,.6);box-shadow:0 40px 90px -30px rgba(27,41,120,.85);
+  transform:scale(.96);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.lightbox.large img{max-width:min(80vw,1100px);max-height:84vh}
+.lightbox.show img{transform:none}
+
+/* ============================================================ CONTACT */
+.contact h2{font-family:var(--display);font-weight:200;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.035em}
+.contact-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(20px,3vw,36px);margin-top:clamp(24px,4vh,40px);align-items:start}
+.contact-card{border-radius:22px;padding:clamp(20px,2.6vw,30px);display:grid;gap:14px}
+.contact-intro{color:var(--ink-soft);font-size:.98rem;line-height:1.6}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:8px}
+.field span{font-weight:600;font-size:.9rem}
+.field input,.field textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);
+  background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink);background:#fff;box-shadow:0 0 0 4px rgba(132,205,238,.45)}
+.field input:user-invalid,.field textarea:user-invalid{border-color:#c2410c}
+.send{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:none;cursor:pointer;
+  font-weight:600;font-size:1rem;color:#fff;padding:15px 20px;border-radius:12px;
+  background:linear-gradient(90deg,var(--ink),#3a57c4);box-shadow:0 18px 34px -18px rgba(27,41,120,.8);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
+.send:hover{transform:translateY(-2px);box-shadow:0 22px 40px -18px rgba(27,41,120,.9)}
+.send svg{width:18px;height:18px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.form-note{min-height:1.2em;font-size:.86rem;color:var(--ink-soft)}
+.form-note:empty{display:none}
+.reach{display:grid;gap:14px}
+.reach-label{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.reach-card{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;text-decoration:none;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
+.reach-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.reach-ic{flex:none;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(132,205,238,.28);border:1px solid rgba(27,41,120,.12)}
+.reach-ic svg{width:20px;height:20px;stroke:var(--ink);stroke-width:1.7;fill:none}
+.reach-ic svg.filled{fill:var(--ink);stroke:none}
+.reach-text{display:grid;gap:2px;min-width:0}
+.reach-text small{font-size:.8rem;color:var(--ink-soft)}
+.reach-text b{font-weight:600;font-size:.98rem;overflow-wrap:anywhere}
+.foot{margin-top:clamp(24px,4vh,40px);font-size:.8rem;color:var(--ink-faint);letter-spacing:.04em}
+
+/* ============================================================ RESPONSIVE */
+@media (max-width:900px){
+  .roles{grid-template-columns:1fr}
+  .role-tabs{grid-template-columns:repeat(2,1fr)}
+  .role-tab:hover{transform:none}
+  .case-grid{grid-template-columns:1fr}
+  .shots.g4{--fh:clamp(120px,26vw,220px)}
+  .shots.g5{grid-template-columns:repeat(2,1fr);--fh:clamp(120px,26vw,220px)}
+  .shots.g5 .shot.tall{grid-column:1 / -1;grid-row:auto}
+  .shots.g5 .shot.tall .shot-frame{height:clamp(220px,60vw,420px);flex:none}
+  .shots.g2,.shots.g1{--fh:clamp(180px,48vw,380px)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .nav{display:none}
+  .topbar{padding-left:20px;padding-right:20px}
+  .slide-inner{padding-left:16px;padding-right:16px}
+  .hero-title{font-size:2.3rem;line-height:1.08}
+  .role-tab{padding:12px 14px;gap:2px 10px}
+  .role-tab .no{font-size:1.15rem}
+  .role-tab .t{font-size:.84rem}
+  .duty{padding:13px 14px;gap:12px}
+  .case{padding:18px 16px}
+  .shots{gap:8px}
+  .shots.g2{grid-template-columns:1fr}
+  .shot figcaption{font-size:.76rem}
+  .field-row{grid-template-columns:1fr}
+  .lightbox img,.lightbox.large img{max-width:92vw;max-height:80vh}
+}
+@media (prefers-reduced-motion:reduce){
+  .deck{scroll-behavior:auto}
+  .hl{transition:none;background-size:100% 100%}
+  .reveal,.hero-anim,.bg-field,.hero-title .ch,.duty,
+  .case .challenge,.case .result,.case .shot,
+  .contact .contact-card,.contact .reach-label,.contact .reach-card{opacity:1!important;transform:none!important;transition:none!important}
+  .blob,.tool{animation:none!important}
+  .marquee-track{animation:none!important;flex-wrap:wrap;justify-content:center;width:auto}
+  .marquee-track li[aria-hidden="true"]{display:none}
+  .marquee{-webkit-mask-image:none;mask-image:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-field" aria-hidden="true">
+  <span class="blob blob-1"></span><span class="blob blob-2"></span><span class="blob blob-3"></span>
+  <span class="blob blob-4"></span><span class="blob blob-5"></span>
+</div>
+
+<header class="site-header">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <nav class="topbar" aria-label="Main">
+    <a class="mark" href="#top"><b>Dilshi</b> Sumedha</a>
+    <div class="nav">
+      <a href="#role">Role</a>
+      <a href="#case-studies">Case studies</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="deck">
+
+  <!-- ===== SLIDE 1 · Hero ===== -->
+  <section class="slide slide-hero" id="top">
+    <div class="slide-inner">
+      <!-- the script splits each line into characters for the letter-by-letter entrance -->
+      <h1 class="hero-title" aria-label="Driving Qualified Pipeline Growth for Modern GTM.">
+        <span class="hero-line" aria-hidden="true">Driving</span>
+        <span class="hero-line" aria-hidden="true">Qualified <span class="hl">Pipeline Growth</span></span>
+        <span class="hero-line" aria-hidden="true">for Modern GTM.</span>
+      </h1>
+      <p class="hero-sub hero-anim">Bringing the right accounts through the right platforms with the right strategies.</p>
+
+      <!-- Platforms: continuously scrolling logo strip (pauses on hover). HubSpot, LinkedIn and Zapier marks are
+           Simple Icons (CC0). Apollo, Instantly and Linked Helper have no public icon: drop apollo.png, instantly.png
+           and linkedhelper.png into assets/tools/ and they replace the letter badges automatically. -->
+      <div class="hero-tools hero-anim">
+        <div class="marquee">
+          <ul class="marquee-track" aria-label="Platforms">
+            <li class="tool"><span class="tool-ic local" style="--c:#1B2978"><img src="assets/tools/apollo.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">A</span></span><span class="tool-name">Apollo</span></li>
+            <li class="tool"><span class="tool-ic si" style="--c:#0A66C2;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/linkedin.svg')"></span><span class="tool-name">Sales Navigator</span></li>
+            <li class="tool"><span class="tool-ic local" style="--c:#2563EB"><img src="assets/tools/instantly.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">I</span></span><span class="tool-name">Instantly</span></li>
+            <li class="tool"><span class="tool-ic local" style="--c:#0A66C2"><img src="assets/tools/linkedhelper.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">LH</span></span><span class="tool-name">Linked Helper</span></li>
+            <li class="tool"><span class="tool-ic si" style="--c:#FF7A59;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/hubspot.svg')"></span><span class="tool-name">HubSpot CRM</span></li>
+            <li class="tool"><span class="tool-ic si" style="--c:#FF4F00;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zapier.svg')"></span><span class="tool-name">Zapier</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic local" style="--c:#1B2978"><img src="assets/tools/apollo.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">A</span></span><span class="tool-name">Apollo</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic si" style="--c:#0A66C2;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/linkedin.svg')"></span><span class="tool-name">Sales Navigator</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic local" style="--c:#2563EB"><img src="assets/tools/instantly.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">I</span></span><span class="tool-name">Instantly</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic local" style="--c:#0A66C2"><img src="assets/tools/linkedhelper.png" alt="" onload="this.parentNode.classList.add('has-logo')" onerror="this.remove()"><span class="mono">LH</span></span><span class="tool-name">Linked Helper</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic si" style="--c:#FF7A59;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/hubspot.svg')"></span><span class="tool-name">HubSpot CRM</span></li>
+            <li class="tool" aria-hidden="true"><span class="tool-ic si" style="--c:#FF4F00;--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/zapier.svg')"></span><span class="tool-name">Zapier</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SLIDE 2 · Role (tabs: pick a role on the left, its three duties show on the right) ===== -->
+  <section class="slide" id="role">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Role</p>
+
+      <div class="roles reveal">
+        <div class="role-tabs" role="tablist" aria-label="Role areas" aria-orientation="vertical">
+          <button class="role-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">
+            <span class="no">01</span><span class="t">Data Intelligence &amp; List Building</span>
+          </button>
+          <button class="role-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">
+            <span class="no">02</span><span class="t">Outbound Strategy &amp; Execution</span><span class="mode">Push</span>
+          </button>
+          <button class="role-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">
+            <span class="no">03</span><span class="t">Inbound Traffic Conversion</span><span class="mode">Pull</span>
+          </button>
+          <button class="role-tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">
+            <span class="no">04</span><span class="t">Funnel Operations, Routing &amp; Analytics</span>
+          </button>
+        </div>
+
+        <div>
+          <article class="role-panel glass on" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+            <div class="panel-top"><span class="no" aria-hidden="true">01</span><h3>Data Intelligence &amp; List Building</h3></div>
+            <ul class="duties">
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+                <div><b>List Building &amp; Scraping</b><p>Building highly targeted databases of companies and specific decision-makers using data mining platforms.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+                <div><b>Data Cleansing &amp; Validation</b><p>Verifying that email addresses are active and phone numbers are direct to avoid high bounce rates and protect email domain health.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+                <div><b>Lead Segmentation</b><p>Categorizing lists by industry, company size, geography, or job seniority so that marketing messages can be personalized.</p></div></li>
+            </ul>
+          </article>
+
+          <article class="role-panel glass" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+            <div class="panel-top"><span class="no" aria-hidden="true">02</span><h3>Outbound Strategy &amp; Execution (Push)</h3></div>
+            <ul class="duties">
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+                <div><b>Cold Email Management</b><p>Writing, scheduling, and running automated email sequences that feel personalized and personal.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
+                <div><b>Social Selling Sourcing</b><p>Engaging with prospects on platforms like LinkedIn by identifying trigger events (e.g., a prospect getting promoted) to open conversations.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+                <div><b>Multi-Channel Sequencing</b><p>Coordinating touchpoints so a prospect receives an email, gets a LinkedIn view, and receives a soft phone call over a structured 14-day window.</p></div></li>
+            </ul>
+          </article>
+
+          <article class="role-panel glass" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+            <div class="panel-top"><span class="no" aria-hidden="true">03</span><h3>Inbound Traffic Conversion (Pull)</h3></div>
+            <ul class="duties">
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15V4M12 15V4M6 10h6"/><path d="M4 15h10v3a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4z"/></svg></span>
+                <div><b>Lead Magnet Promotion</b><p>Deploying and marketing high-value assets that require an email address to access.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></span>
+                <div><b>Landing Page Optimization</b><p>Partnering with copywriters and designers to ensure that web pages built for ads have highly visible forms and compelling call-to-actions.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><path d="m16 16 2 2 4-4"/></svg></span>
+                <div><b>Form Logic Management</b><p>Working to ensure that forms ask for just enough information to qualify a lead without making the form so long that prospects give up.</p></div></li>
+            </ul>
+          </article>
+
+          <article class="role-panel glass" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
+            <div class="panel-top"><span class="no" aria-hidden="true">04</span><h3>Funnel Operations, Routing &amp; Analytics</h3></div>
+            <ul class="duties">
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
+                <div><b>Lead Enrichment Collaboration</b><p>Coordinating with the GTM Engineer to automatically enrich thin leads.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h7l4-6h7M14 18h7M10 12l4 6"/><path d="m18 3 3 3-3 3M18 15l3 3-3 3"/></svg></span>
+                <div><b>Lead Routing &amp; Handoff</b><p>Setting up validation rules so that qualified leads are pushed immediately into the CRM and cleanly assigned to the correct sales rep without delay.</p></div></li>
+              <li class="duty"><span class="duty-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+                <div><b>Performance Reporting</b><p>Tracking, analyzing, and presenting data on critical metrics: Cost Per Lead (CPL), Form Conversion Rates, and Lead-to-Opportunity conversion velocity.</p></div></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SLIDE 3 · Case Study 01 ===== -->
+  <section class="slide slide-tight" id="case-studies">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Case studies</p>
+      <article class="case glass reveal">
+        <div class="case-top">
+          <span class="case-no">Case Study 01</span>
+          <span class="tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Australia</span>
+        </div>
+        <h3>B2B property maintenance provider</h3>
+        <div class="case-grid">
+          <div class="case-side">
+            <div class="challenge">
+              <p class="label">Challenges</p>
+              <p>Extreme persona fragmentation, as target buyers vary wildly in their priorities, budgets, and operational language across different industry sectors and service lines.</p>
+            </div>
+            <div class="result">
+              <p class="label">Results</p>
+              <p class="result-text">5 meetings booked within 1.5 months.</p>
+            </div>
+          </div>
+          <div class="shots g5">
+            <figure class="shot tall" tabindex="0" data-size="large">
+              <div class="shot-frame"><img src="assets/lead-gen/cs1-positive-replies.png" alt="Positive replies from prospects (LinkedIn, Reddit and Gmail)"></div>
+              <figcaption>Meetings booked</figcaption>
+            </figure>
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/Case%20study%201Buyer%20Personas.png" alt="Buyer persona handbook"></div>
+              <figcaption>Buyer persona handbook</figcaption>
+            </figure>
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/Case%20study%201strategy%20map.png" alt="Lead generation strategy map"></div>
+              <figcaption>Strategy dashboard</figcaption>
+            </figure>
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/Case%20study%201apollo%20stats.jpg" alt="Apollo sequence statistics"></div>
+              <figcaption>Analytics dashboard</figcaption>
+            </figure>
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/Case%20study%201reply%20handling.png" alt="Reply handling decision flow"></div>
+              <figcaption>Reply handling</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SLIDE 4 · Case Study 02 ===== -->
+  <section class="slide slide-tight" id="case-study-02">
+    <div class="slide-inner">
+      <article class="case glass reveal">
+        <div class="case-top">
+          <span class="case-no">Case Study 02</span>
+          <span class="tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>US</span>
+        </div>
+        <h3>AI-powered experiential retail platform</h3>
+        <div class="case-grid">
+          <div class="case-side">
+            <div class="challenge">
+              <p class="label">Challenges</p>
+              <h4>Friction in Abstract Selling</h4>
+              <p>The product requires a visual, real-time demonstration of 3D and AI experiences on the sales floor to convey its true value.</p>
+            </div>
+            <div class="result">
+              <p class="label">Results</p>
+              <p class="result-text">1 meeting booked within 1 month.</p>
+            </div>
+          </div>
+          <div class="shots g2">
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/case%20study%202%20linkdln%20approaches%20.png" alt="LinkedIn approach creative"></div>
+              <figcaption>LinkedIn approaches</figcaption>
+            </figure>
+            <figure class="shot" tabindex="0">
+              <div class="shot-frame"><img src="assets/Lead%20generation%20specialist%20assests/case%20study%202%20linkde%20helper%20automations.jpg" alt="Linked Helper automation campaign"></div>
+              <figcaption>Linked Helper automations</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SLIDE 5 · Case Study 03 ===== -->
+  <section class="slide slide-tight" id="case-study-03">
+    <div class="slide-inner">
+      <article class="case glass reveal">
+        <div class="case-top">
+          <span class="case-no">Case Study 03</span>
+          <span class="tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Sri Lanka</span>
+        </div>
+        <h3>AI-native Internal Developer Platform as a Service (IDPaaS)</h3>
+        <div class="case-grid">
+          <div class="case-side">
+            <div class="challenge">
+              <p class="label">Challenges</p>
+              <h4>Complex Value Propositions</h4>
+              <p>The technical complexity of the software's architecture, compliance, and multi-cloud deployment makes it difficult to distill into direct selling.</p>
+            </div>
+            <div class="result">
+              <p class="label">Results</p>
+              <p class="result-text">2 meetings booked within 3 months.</p>
+            </div>
+          </div>
+          <div class="shots g1">
+            <figure class="shot" tabindex="0" data-size="large">
+              <div class="shot-frame"><img src="assets/lead-gen/cs3-linkedin-responses.png" alt="LinkedIn responses from prospects"></div>
+              <figcaption>Meetings booked</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SLIDE 6 · Contact ===== -->
+  <section class="slide slide-tight" id="contact">
+    <div class="slide-inner">
+      <footer class="contact reveal">
+        <h2>Let's connect</h2>
+        <div class="contact-grid">
+          <!-- No server: on submit this opens the visitor's email app with the message filled in -->
+          <form class="contact-card glass" id="contact-form" novalidate>
+            <p class="contact-intro">Open to freelance projects, consulting, and CRM-related opportunities. Send a message — I usually reply within 24 hours.</p>
+            <div class="field-row">
+              <label class="field"><span>Name</span><input name="name" type="text" autocomplete="name" required></label>
+              <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+            </div>
+            <label class="field"><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+            <button class="send" type="submit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+              Send Message
+            </button>
+            <p class="form-note" aria-live="polite"></p>
+          </form>
+          <aside class="reach">
+            <p class="reach-label">Or reach me on</p>
+            <a class="reach-card glass" href="mailto:dilshisumedha17@gmail.com">
+              <span class="reach-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span class="reach-text"><small>Contact me via email:</small><b>dilshisumedha17@gmail.com</b></span>
+            </a>
+            <a class="reach-card glass" href="https://www.linkedin.com/in/dilshi-sumedha-8b233a220" target="_blank" rel="noopener">
+              <span class="reach-ic"><svg viewBox="0 0 24 24" aria-hidden="true" class="filled"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+              <span class="reach-text"><small>LinkedIn</small><b>/in/dilshi-sumedha-8b233a220</b></span>
+            </a>
+          </aside>
+        </div>
+        <p class="foot">© 2026 Dilshi Sumedha · Lead Generation Specialist</p>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" aria-hidden="true"><img alt=""></div>
+
+<script>
+(function(){
+  'use strict';
+  var deck = document.querySelector('.deck');
+  var slides = document.querySelectorAll('.slide');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* which nav link each slide belongs to (all three case studies sit under "Case studies") */
+  var navFor = {'role':'#role','case-studies':'#case-studies','case-study-02':'#case-studies','case-study-03':'#case-studies','contact':'#contact'};
+  var navLinks = document.querySelectorAll('.nav a');
+
+  /* progress line follows the deck's own scroll */
+  var bar = document.querySelector('.scroll-progress');
+  function onScroll(){
+    var max = deck.scrollHeight - deck.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? deck.scrollTop / max : 0) + ')';
+  }
+  deck.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* role tabs: click / arrow keys switch the panel; its duty cards rise in one after another */
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.role-tab'));
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab, panel = document.getElementById(t.getAttribute('aria-controls'));
+        t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+        panel.hidden = !on; panel.classList.remove('on');
+        if(on){ void panel.offsetWidth; panel.classList.add('on'); }   /* restart the stagger */
+      });
+      if(focus) tab.focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ select(t); });
+      t.addEventListener('keydown', function(e){
+        var k = e.key, n = null;
+        if(k === 'ArrowDown' || k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        else if(k === 'ArrowUp' || k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if(k === 'Home') n = tabs[0]; else if(k === 'End') n = tabs[tabs.length - 1];
+        if(n){ e.preventDefault(); select(n, true); }
+      });
+    });
+  })();
+
+  /* pop an image up on hover, focus or tap */
+  (function(){
+    var box = document.querySelector('.lightbox'), boxImg = box.querySelector('img');
+    var canHover = window.matchMedia('(hover: hover)').matches;
+    function show(img, large){ boxImg.src = img.currentSrc || img.src; boxImg.alt = img.alt; box.classList.toggle('large', large); box.classList.add('show'); }
+    function hide(){ box.classList.remove('show'); }
+    document.querySelectorAll('.shot').forEach(function(it){
+      var img = it.querySelector('img'), large = it.dataset.size === 'large';
+      function open(){ show(img, large); }
+      if(canHover){ it.addEventListener('mouseenter', open); it.addEventListener('mouseleave', hide); }
+      else it.addEventListener('click', function(e){
+        e.stopPropagation();
+        if(box.classList.contains('show') && boxImg.alt === img.alt) hide(); else open();
+      });
+      it.addEventListener('focus', function(){ if(it.matches(':focus-visible')) open(); });
+      it.addEventListener('blur', hide);
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hide(); });
+    document.addEventListener('click', function(){ if(!canHover) hide(); });
+    deck.addEventListener('scroll', hide, {passive:true});
+  })();
+
+  /* contact form: no server, so hand the message to the visitor's email app */
+  (function(){
+    var form = document.getElementById('contact-form');
+    var note = form.querySelector('.form-note');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      var name = form.name.value.trim(), email = form.email.value.trim(), msg = form.message.value.trim();
+      var subject = 'Portfolio enquiry from ' + name;
+      var body = msg + '\n\n— ' + name + ' (' + email + ')';
+      window.location.href = 'mailto:dilshisumedha17@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      note.textContent = 'Opening your email app… If nothing happens, email dilshisumedha17@gmail.com directly.';
+    });
+  })();
+
+  /* headline: wrap every character in its own span with a stepped delay; the subheadline,
+     platform strip and marker follow the last letter */
+  (function(){
+    var title = document.querySelector('.hero-title');
+    var STEP = 0.035, n = 0;
+    function splitInto(el){
+      Array.prototype.slice.call(el.childNodes).forEach(function(node){
+        if(node.nodeType === 1){ splitInto(node); return; }
+        if(node.nodeType !== 3) return;
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part) return;
+          if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
+          var w = document.createElement('span'); w.className = 'w';
+          Array.prototype.forEach.call(part, function(c){
+            var s = document.createElement('span'); s.className = 'ch'; s.textContent = c;
+            s.style.setProperty('--d', (n++ * STEP).toFixed(3) + 's');
+            w.appendChild(s);
+          });
+          frag.appendChild(w);
+        });
+        el.replaceChild(frag, node);
+      });
+    }
+    title.querySelectorAll('.hero-line').forEach(splitInto);
+    var last = Math.max(0, n - 1) * STEP;
+    document.querySelector('.hero-sub').style.transitionDelay = (last + 0.15).toFixed(2) + 's';
+    document.querySelector('.hero-tools').style.transitionDelay = (last + 0.30).toFixed(2) + 's';
+    title.querySelector('.hl').style.transitionDelay = (last + 0.25).toFixed(2) + 's';
+  })();
+
+  /* start the hero entrance after first paint (timeout = fallback when animation frames are delayed) */
+  (function(){
+    function go(){ document.documentElement.classList.add('hero-ready'); }
+    requestAnimationFrame(function(){ requestAnimationFrame(go); });
+    setTimeout(go, 150);
+  })();
+
+  /* parallax: the ambient glow layer moves at 30% of the deck's scroll speed */
+  (function(){
+    var field = document.querySelector('.bg-field');
+    if(reduce) return;
+    var RATE = 0.3, ticking = false;
+    function size(){ field.style.height = (window.innerHeight + (deck.scrollHeight - deck.clientHeight) * RATE + 60) + 'px'; }
+    function apply(){ ticking = false; field.style.transform = 'translate3d(0,' + (-deck.scrollTop * RATE).toFixed(1) + 'px,0)'; }
+    deck.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(apply); } }, {passive:true});
+    window.addEventListener('resize', function(){ size(); apply(); });
+    size(); apply();
+  })();
+
+  var reveals = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || reduce){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var revealIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        en.target.classList.add('in');
+        revealIO.unobserve(en.target);
+      });
+    }, {threshold:0.1});
+    reveals.forEach(function(el){ revealIO.observe(el); });
+  }
+
+  if(!('IntersectionObserver' in window)) return;
+  var slideIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var href = navFor[en.target.id];
+        navLinks.forEach(function(a){
+          var on = a.getAttribute('href') === href;
+          a.classList.toggle('active', on);
+          if(on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+        });
+      } else {
+        en.target.scrollTop = 0;   /* reset a slide to its top when you leave it */
+      }
+    });
+  }, {threshold:0.55});
+  slides.forEach(function(s){ slideIO.observe(s); });
+})();
+</script>
+</body>
+</html>
